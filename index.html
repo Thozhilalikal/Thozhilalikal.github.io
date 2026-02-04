@@ -182,8 +182,12 @@
                     case 'Breakroom':
                         return (
                             <div className="space-y-4 animate-in fade-in duration-500">
-                                <Illustration type="Coffee" />
-                                <h2 className="text-2xl font-bold">Breakroom</h2>
+                                <img 
+                                    src="breakroomimage.jpg" 
+                                    alt="Amazon Breakroom" 
+                                    className="w-full h-auto rounded-xl shadow-2xl border border-white/10 mb-6 object-cover"
+                                />
+                                h2 className="text-2xl font-bold">Breakroom</h2>
                                 <p className="text-zinc-300">You bring up pay and safety with a few coworkers during break. Some listen, others stay silent. Cameras hum overhead.</p>
                                 <div className="bg-orange-500/10 border border-orange-500/30 p-4 rounded-lg text-sm text-orange-200">
                                     The next day, HR posts flyers: “Amazon listens to associates directly — no third party needed.” Classic anti-union language.
@@ -194,6 +198,7 @@
                                 </div>
                             </div>
                         );
+                                
 
                     case 'UnionBasics':
                         return (
