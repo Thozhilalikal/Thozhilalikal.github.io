@@ -111,6 +111,24 @@
             });
             const [isUpdating, setIsUpdating] = useState(false);
 
+            // Handle browser back/forward navigation
+            useEffect(() => {
+                // Initial state replacement to ensure we can go back to the start
+                if (!window.history.state) {
+                    window.history.replaceState({ passage: 'Start', stats: stats }, '');
+                }
+
+                const handlePopState = (event) => {
+                    if (event.state) {
+                        setPassage(event.state.passage);
+                        setStats(event.state.stats);
+                    }
+                };
+
+                window.addEventListener('popstate', handlePopState);
+                return () => window.removeEventListener('popstate', handlePopState);
+            }, []);
+
             const updateStats = (updates) => {
                 setIsUpdating(true);
                 setStats(prev => {
@@ -122,9 +140,20 @@
             };
 
             const navigate = (nextPassage, statUpdates = {}) => {
-                updateStats(statUpdates);
+                setIsUpdating(true);
+                
+                // Calculate new stats to store in history
+                const newStats = { ...stats, ...statUpdates };
+                newStats.support = Math.max(0, Math.min(100, newStats.support));
+
+                // Push current state to browser history
+                window.history.pushState({ passage: nextPassage, stats: newStats }, '');
+
+                setStats(newStats);
                 setPassage(nextPassage);
                 window.scrollTo({ top: 0, behavior: 'smooth' });
+                
+                setTimeout(() => setIsUpdating(false), 800);
             };
 
             const getRandom = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
