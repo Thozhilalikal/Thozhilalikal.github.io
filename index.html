@@ -222,7 +222,7 @@
                         const curSup = stats.support + supGain;
                         return (
                             <div className="space-y-4">
-                                <NarrativeImage src="CardDriveimage.png" alt="Authorization Cards" />
+                                <NarrativeImage src="CardDriveimage.jpg" alt="Authorization Cards" />
                                 <h2 className="text-2xl font-bold">Distributing <a href={faqUrl} target="_blank" rel="noopener noreferrer" className="hover:text-orange-400 underline underline-offset-8 decoration-orange-500/30 transition-all">Authorization Cards</a></h2>
                                 <p className="text-zinc-300">You and your coworkers begin distributing <a href={faqUrl} target="_blank" rel="noopener noreferrer" className="text-orange-400 hover:text-orange-300 underline underline-offset-4 decoration-orange-500/50">authorization cards</a> quietly.</p>
                                 {curSup >= 70 ? (
@@ -248,7 +248,7 @@
                     case 'ElectionFiling':
                         return (
                             <div className="space-y-4">
-                                <NarrativeImage src="ElectionFilingimage.png" alt="Legal Filing" />
+                                <NarrativeImage src="ElectionFilingimage.jpg" alt="Legal Filing" />
                                 <h2 className="text-2xl font-bold">Filing with the NLRB</h2>
                                 <p className="text-zinc-300">You file with the NLRB. Amazon responds instantly with mandatory “information sessions” — <span className="text-red-400 font-bold uppercase">captive audience meetings.</span></p>
                                 <p className="text-zinc-400 italic">Supervisors warn: “Unions take your dues. We already pay well.”</p>
@@ -304,7 +304,7 @@
                         const isLegacy = stats.morale === 'legacy' || stats.support >= 80;
                         return (
                             <div className="space-y-6">
-                                <NarrativeImage src="Epilogueimage.png" alt="Legacy" />
+                                <NarrativeImage src="Epilogueimage.jpg" alt="Legacy" />
                                 <h2 className="text-2xl font-bold uppercase tracking-widest text-zinc-500 text-center">Ten Years Later</h2>
                                 <div className="bg-zinc-800/50 p-6 rounded-2xl border border-white/5 italic">
                                     {isLegacy ? (
@@ -350,8 +350,11 @@
                             {renderPassage()}
                         </div>
 
-                        <footer className="text-center opacity-20 text-[9px] uppercase tracking-[0.4em] pt-8 pb-12">
-                            The Organizer — Amazon Labor Narrative
+                        <footer className="text-center opacity-20 text-[9px] pt-8 pb-12">
+                            <div className="uppercase tracking-[0.4em] mb-2 font-bold">The Organizer — Amazon Labor Narrative</div>
+                            <div className="max-w-lg mx-auto leading-relaxed">
+                                this is a work in progress prototype. please send your feedbacks at <span className="text-orange-400">arun.jacob@mail.utoronto.ca</span> or <span className="text-orange-400">ashique.thuppilikkat@mail.utoronto.ca</span>
+                            </div>
                         </footer>
                     </div>
                 </div>
